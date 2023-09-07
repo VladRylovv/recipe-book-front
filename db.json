@@ -1,0 +1,87 @@
+{
+  "recipes": [
+    {
+      "id": 1,
+      "name": "Батата харра",
+      "img": "https://img.iamcook.ru/2018/upl/recipes/cat/u6009-c087d44c1b372f02a217e5e21201fa73.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Куриная грудка, фаршированная помидорами и сыром",
+      "img": "https://img.iamcook.ru/2018/upl/recipes/cat/u6009-b80c1752cda62fa794b2b73832e08542.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Фаршированный перец с соусом (подливкой)",
+      "img": "https://img.iamcook.ru/2018/upl/recipes/cat/u-ccad4d07d6c2682c644b0d7849674e1b.JPG"
+    },
+    {
+      "id": 4,
+      "name": "Суп-пюре из шампиньонов с чесноком",
+      "img": "https://img.iamcook.ru/2018/upl/recipes/cat/u6009-e03f7a7564cf654007c9ba37b287bff0.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Рыбные тефтели в томатном соусе",
+      "img": "https://img.iamcook.ru/old/upl/recipes/cat/u-b4476574be4958d98d8cd518a05026fb.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Рассольник с томатом, перловкой и солеными огурцами",
+      "img": "https://img.iamcook.ru/2018/upl/recipes/cat/u-ff0e15951ca55e0061cebfffad83edd8.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Тыквенный суп-пюре",
+      "img": "https://img.iamcook.ru/2017/upl/recipes/cat/u6009-9baa1fbecae569df31b376ccd55765bd.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Куриный суп с кабачком и вермишелью",
+      "img": "https://img.iamcook.ru/2018/upl/recipes/cat/u-d172a65c9a701e829a5663413e3f1814.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Гуйру цомян",
+      "img": "https://img.iamcook.ru/2018/upl/recipes/cat/u-be7fa4f2d632b7e8e0e1b4bd326cb8d2.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Тушеная печень со сметаной, морковью и луком",
+      "img": "https://img.iamcook.ru/2018/upl/recipes/cat/u-ee511655e1644ea0722426e804f9f0b4.JPG"
+    },
+    {
+      "id": 11,
+      "name": "Крем-суп из чечевицы",
+      "img": "https://img.iamcook.ru/2018/upl/recipes/cat/u6009-2685ee3a15099b017ddcc47a21114705.jpg"
+    },
+    {
+      "id": 12,
+      "name": "Овощная лазанья",
+      "img": "https://img.iamcook.ru/old/upl/recipes/cat/u-98a1a95d9e6bcda2c116941a0b5d52f7.jpg"
+    },
+    {
+      "id": 13,
+      "name": "Бефстроганов с солеными огурцами",
+      "img": "https://img.iamcook.ru/old/upl/recipes/cat/u-0db4403f6db355563625894215764d54.JPG"
+    },
+    {
+      "id": 14,
+      "name": "Суп с тыквой и чечевицей",
+      "img": "https://img.iamcook.ru/2017/upl/recipes/cat/u-72effaed312f929676ff7829703feb7e.JPG"
+    },
+    {
+      "id": 15,
+      "name": "Спагетти с куриными фрикадельками",
+      "img": "https://img.iamcook.ru/old/upl/recipes/cat/u-1f670a8f5813d2810eab2201adb1744a.jpg"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "role": "admin",
+      "name": "Vlad Rylov",
+      "password": "Pfobn222"
+    }
+  ]
+}

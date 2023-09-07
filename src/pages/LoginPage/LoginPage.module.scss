@@ -1,0 +1,57 @@
+.login_page_wrap {
+  display: flex;
+  background: var(--light);
+  height: 100vh;
+
+  & .login_image {
+    flex: 1;
+    background: #8ab4ff url("../../assets/images/login_image.jpg") no-repeat center left;
+    background-size: contain;
+  }
+
+  & .login_form_wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    height: calc(100% - 40px);
+    padding: 0 90px;
+    border-radius: 20px;
+
+
+    & .login_form {
+
+      & .login_form_title {
+        text-align: center;
+        font-family: "Roboto Slab", serif;
+        margin-bottom: 20px;
+      }
+
+      & form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        & .login_form_input {
+          width: 300px;
+        }
+
+        & .login_text_sign_up {
+          margin-top: 20px;
+          text-align: center;
+
+          & .login_link_sign_up {
+            cursor: pointer;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+}

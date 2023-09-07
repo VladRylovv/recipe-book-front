@@ -1,0 +1,14 @@
+:root {
+    --black: #000;
+    --darken: #2d3436;
+    --darken-light: #636e72;
+    --light-blue: #a29bfe;
+    --blue: #6c5ce7;
+    --white: #fff;
+    --light: #fcc;
+    --light-grey: #dfe6e9;
+    --grey: #b2bec3;
+    --text-grey: #bcbcbc;
+    --alert: #ff7675;
+    --success: #00b894
+}

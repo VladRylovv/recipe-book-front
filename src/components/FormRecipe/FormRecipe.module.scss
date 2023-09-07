@@ -1,0 +1,15 @@
+.form_wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  & .form_fields {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+
+    & > div {
+      flex: 1;
+    }
+  }
+}

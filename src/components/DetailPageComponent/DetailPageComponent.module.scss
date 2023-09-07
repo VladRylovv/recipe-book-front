@@ -1,0 +1,31 @@
+.detail_wrap {
+
+  & .detail_head {
+    display: flex;
+    gap: 20px;
+
+    & .detail_text {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+
+      & .detail_title {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    & .detail_image {
+      min-width: 400px;
+      width: 400px;
+      height: 300px;
+    }
+  }
+
+  & .detail_ingredients {
+
+  }
+}

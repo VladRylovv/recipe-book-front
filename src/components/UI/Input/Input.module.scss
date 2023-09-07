@@ -1,0 +1,41 @@
+.input_wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  & .input_label {
+    cursor: pointer;
+  }
+
+  & textarea {
+    resize: none;
+  }
+
+  &.input_error input {
+    border-color: var(--alert);
+  }
+
+  & input, & textarea {
+    border: 1px solid #f8f8f7;
+    border-radius: 5px;
+    padding: 15px;
+    font-family: Inter, sans-serif;
+    background: #f8f8f7;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      font-family: Inter, sans-serif;
+      color: var(--text-grey);
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 30px #f8f8f7 inset !important;
+    }
+  }
+}

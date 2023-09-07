@@ -1,0 +1,19 @@
+.button {
+  background: var(--black);
+  border-radius: 30px;
+  padding: 13px 10px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s ease-in-out;
+}
+
+.button_loading:hover {
+  background: var(--black)!important;
+  cursor: default;
+}
+
+.button:hover {
+  background: var(--darken-light);
+}
