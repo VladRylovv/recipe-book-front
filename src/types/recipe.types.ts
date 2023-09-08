@@ -9,4 +9,5 @@ export type RecipeItem = {
     name: string
     description: string
     user: User | null
+    createdAt: string
 }

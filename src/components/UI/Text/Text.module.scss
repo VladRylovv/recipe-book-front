@@ -7,7 +7,11 @@
 }
 
 .text-color-alert {
-  color: vaR(--alert);
+  color: var(--alert);
+}
+
+.text-color-white {
+  color: var(--white);
 }
 
 .text-size-12 {

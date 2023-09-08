@@ -9,6 +9,12 @@
   padding: 10px;
 }
 
+.recipe_item_top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .recipe_text_wrap {
   display: flex;
   flex-direction: column;

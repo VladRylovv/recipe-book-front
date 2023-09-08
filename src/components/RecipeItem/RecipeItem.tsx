@@ -1,6 +1,7 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
 import { Button, ImageRecipe, Text } from "../UI"
+import { getDate } from "../../helpers/date"
 import { IRecipeItem } from "./IRecipeItem"
 import styles from "./RecipeItem.module.scss"
 
@@ -10,6 +11,7 @@ const RecipeItem: React.FC<IRecipeItem> = ({
     img,
     description,
     user,
+    createdAt,
 }) => {
     const navigate = useNavigate()
 
@@ -17,7 +19,10 @@ const RecipeItem: React.FC<IRecipeItem> = ({
         <li className={styles.recipe_wrap}>
             <ImageRecipe src={img} alt={name} />
             <div className={styles.recipe_text_wrap}>
-                <Text type={"bold"}>{name}</Text>
+                <div className={styles.recipe_item_top}>
+                    <Text type={"bold"}>{name}</Text>
+                    <Text color={"secondary"}>{getDate(createdAt)}</Text>
+                </div>
                 {user && (
                     <Text>
                         Author:{" "}

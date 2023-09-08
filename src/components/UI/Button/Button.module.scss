@@ -1,12 +1,38 @@
 .button {
   background: var(--black);
-  border-radius: 30px;
-  padding: 13px 10px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   transition: all 0.1s ease-in-out;
+
+  &_stroked {
+    background: var(--white);
+    border: 2px solid var(--black);
+
+    &:hover {
+      background: var(--white) !important;
+    }
+  }
+
+  &_button_size_s {
+    padding: 7px 15px;
+    border-radius: 20px;
+  }
+
+  &_button_size_m {
+    padding: 10px 15px;
+    border-radius: 20px;
+  }
+
+  &_button_size_l {
+    padding: 13px 70px;
+    border-radius: 45px;
+  }
+
+  &:hover {
+    background: var(--darken-light);
+  }
 }
 
 .button_loading:hover {
@@ -15,5 +41,5 @@
 }
 
 .button:hover {
-  background: var(--darken-light);
+
 }
