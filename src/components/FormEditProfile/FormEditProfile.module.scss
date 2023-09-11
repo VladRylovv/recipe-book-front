@@ -1,0 +1,20 @@
+.form_edit_profile_wrap {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  & .avatar_field {
+    cursor: pointer;
+  }
+
+  & .form_fields {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: calc(100% - 220px);
+
+    .input_file_upload {
+      display: none;
+    }
+  }
+}
