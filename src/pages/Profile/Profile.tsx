@@ -12,7 +12,11 @@ const Profile: React.FC = () => {
   const { profileId } = useParams()
   const navigate = useNavigate()
 
-  const { data: user, isLoading, isFetching } = useGetUserQuery(profileId)
+  const {
+    data: user,
+    isLoading,
+    isFetching,
+  } = useGetUserQuery(profileId, { skip: !profileId })
   const userStoreId = useAppSelector((state) => state.auth.user?.id)
 
   const showEditBtn = useMemo(() => {

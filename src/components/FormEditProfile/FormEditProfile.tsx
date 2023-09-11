@@ -5,12 +5,16 @@ import React, {
   useRef,
   useState,
 } from "react"
-import { useEditUserMutation } from "../../store/user/user.api"
+import {
+  useDeleteAvatarMutation,
+  useEditUserMutation,
+} from "../../store/user/user.api"
 import { useAppDispatch } from "../../helpers/hooks/useAppDispatch"
 import { useNavigate } from "react-router-dom"
 import { Button, ImageUser, Input } from "../UI"
-import { editProfileStore } from "../../store/auth/auth.slice"
 import { addNotification } from "../../helpers/addNotification"
+import { editProfileManual } from "../../store/user/actions/editProfileManual"
+import { formatDataEditProfile } from "./helpers/formatDataEditProfile"
 import { _URL } from "../../constants/api"
 import { IFormEditProfile } from "./IFormEditProfile"
 import styles from "./FormEditProfile.module.scss"
@@ -26,6 +30,7 @@ const FormEditProfile: React.FC<IFormEditProfile> = ({ user }) => {
   const refInputFile = useRef(null)
 
   const [editProfile] = useEditUserMutation()
+  const [deleteAvatar] = useDeleteAvatarMutation()
   const dispatch = useAppDispatch()
 
   const imageValue = useMemo(() => {
@@ -43,18 +48,18 @@ const FormEditProfile: React.FC<IFormEditProfile> = ({ user }) => {
   const handleEdit = useCallback(() => {
     if (!user?.id) return
 
-    const data = new FormData()
+    const formatData = formatDataEditProfile({
+      id: user.id,
+      login,
+      name,
+      email,
+      image,
+    })
 
-    data.append("id", String(user.id))
-    data.append("login", login)
-    if (image instanceof File) data.append("image", image)
-    data.append("name", name)
-    data.append("email", email)
-
-    editProfile(data)
+    editProfile(formatData)
       .unwrap()
       .then((res) => {
-        dispatch(editProfileStore(res))
+        editProfileManual(dispatch, res)
         navigate(`/profile/${res.id}`)
       })
       .catch((err) => {
@@ -71,6 +76,20 @@ const FormEditProfile: React.FC<IFormEditProfile> = ({ user }) => {
   const handleUploadFile = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     if (e.target?.files[0]) setImage(e.target?.files[0])
   }, [])
+  const handleDeleteAvatar = useCallback(() => {
+    if (!user?.id) return
+
+    setImage("")
+
+    if (!user.avatar) return
+
+    deleteAvatar(user.id)
+      .unwrap()
+      .then((res) => {
+        editProfileManual(dispatch, res)
+      })
+      .catch((err) => console.error(err))
+  }, [imageValue, user.id, user.avatar])
   //endregion
 
   return (
@@ -80,6 +99,7 @@ const FormEditProfile: React.FC<IFormEditProfile> = ({ user }) => {
           className={styles.avatar_field}
           src={imageValue}
           onClick={handleOpenFileSelect}
+          onDelete={imageValue ? handleDeleteAvatar : null}
         />
         <div className={styles.form_fields}>
           <input
