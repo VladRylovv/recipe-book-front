@@ -3,6 +3,7 @@ import { useGetUserQuery } from "../../store/user/user.api"
 import { useAppSelector } from "../../helpers/hooks/useAppSelector"
 import { Loader } from "../../components/UI"
 import FormEditProfile from "../../components/FormEditProfile/FormEditProfile"
+import styles from "./EditProfile.module.scss"
 
 const EditProfile: React.FC = () => {
   const userId = useAppSelector((state) => state.auth.user?.id)
@@ -17,7 +18,7 @@ const EditProfile: React.FC = () => {
 
   if (isFetching || isLoading)
     return (
-      <div>
+      <div className={styles.edit_profile_loader_wrap}>
         <Loader />
       </div>
     )
