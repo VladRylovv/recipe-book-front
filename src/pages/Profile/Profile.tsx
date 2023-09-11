@@ -32,7 +32,7 @@ const Profile: React.FC = () => {
 
   if (isFetching || isLoading)
     return (
-      <div>
+      <div className={styles.profile_wrap_loader}>
         <Loader />
       </div>
     )
