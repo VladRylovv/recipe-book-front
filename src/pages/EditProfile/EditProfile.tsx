@@ -1,7 +1,7 @@
 import React from "react"
 import { useGetUserQuery } from "../../store/user/user.api"
 import { useAppSelector } from "../../helpers/hooks/useAppSelector"
-import { Loader } from "../../components/UI"
+import { Loader, Text } from "../../components/UI"
 import FormEditProfile from "../../components/FormEditProfile/FormEditProfile"
 import styles from "./EditProfile.module.scss"
 
@@ -22,6 +22,8 @@ const EditProfile: React.FC = () => {
         <Loader />
       </div>
     )
+
+  if (!user) return <Text>Not found user</Text>
 
   return <FormEditProfile user={user} />
 }
