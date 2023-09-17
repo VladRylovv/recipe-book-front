@@ -1,24 +1,16 @@
 import { useLazyRefreshTokenQuery } from "../../store/auth/auth.api"
-import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
-import { useAppDispatch } from "./useAppDispatch"
-import { initUser } from "../../store/auth/auth.slice"
+import { useAppSelector } from "./useAppSelector"
 
 export function useCheckAuth() {
-    const [fetchRefreshToken] = useLazyRefreshTokenQuery()
-    const navigate = useNavigate()
-    const dispatch = useAppDispatch()
+  const [fetchRefreshToken] = useLazyRefreshTokenQuery()
+  const { isAuth } = useAppSelector((state) => state.auth)
 
-    useEffect(() => {
-        fetchRefreshToken()
-            .unwrap()
-            .then((res) => {
-                if (res.user) {
-                    dispatch(initUser(res.user))
-                    navigate("/")
-                }
-            })
-    }, [])
+  const accessToken = localStorage.getItem("accessToken")
 
-    return null
+  useEffect(() => {
+    if (accessToken && !isAuth) fetchRefreshToken()
+  }, [])
+
+  return null
 }

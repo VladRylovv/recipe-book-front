@@ -1,24 +1,32 @@
 import React, { PropsWithChildren } from "react"
 import { useAppSelector } from "../../../helpers/hooks/useAppSelector"
-import { Navigate, useLocation } from "react-router-dom"
+import { Navigate } from "react-router-dom"
+import { Text } from "../../UI"
 import { IPrivateRoute } from "./IPrivateRoute"
 
 const PrivateRoute: React.FC<PropsWithChildren<IPrivateRoute>> = ({
-    children,
-    loginPage = true,
+  children,
+  loginPage = true,
 }) => {
-    const isAuth = useAppSelector((state) => state.auth.user)
-    const location = useLocation()
+  const { isLoaded, isAuth } = useAppSelector((state) => state.auth)
+  const accessToken = localStorage.getItem("accessToken")
 
-    if (!loginPage) {
-        if (isAuth) return children
+  if (isLoaded)
+    return (
+      <div>
+        <Text>Loading...</Text>
+      </div>
+    )
 
-        return <Navigate to={"/login"} state={{ from: location }} replace />
-    }
-
-    if (isAuth) return <Navigate to={"/"} />
-
-    return children
+  switch (true) {
+    case !loginPage && isAuth:
+    case loginPage && !isAuth:
+      return children
+    case !loginPage && !isAuth && !accessToken:
+      return <Navigate to={"/login"} />
+    case loginPage && isAuth:
+      return <Navigate to={"/"} />
+  }
 }
 
 export default PrivateRoute

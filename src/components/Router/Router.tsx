@@ -26,22 +26,8 @@ const Router: React.FC = () => {
           element={<RouterLayout />}
           errorElement={<NotFoundPage />}
         >
-          <Route
-            index
-            element={
-              <PrivateRoute loginPage={false}>
-                <Main />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path={"profile/:profileId"}
-            element={
-              <PrivateRoute loginPage={false}>
-                <Profile />
-              </PrivateRoute>
-            }
-          />
+          <Route index element={<Main />} />
+          <Route path={"profile/:profileId"} element={<Profile />} />
           <Route
             path={"profile/edit"}
             element={
