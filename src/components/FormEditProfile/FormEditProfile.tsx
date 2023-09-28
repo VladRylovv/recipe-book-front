@@ -20,14 +20,14 @@ import { IFormEditProfile } from "./IFormEditProfile"
 import styles from "./FormEditProfile.module.scss"
 
 const FormEditProfile: React.FC<IFormEditProfile> = ({ user }) => {
-  const [image, setImage] = useState<File | string>(user.avatar)
+  const [image, setImage] = useState<File | string | null>(user?.avatar || null)
   const [login, setLogin] = useState(user.login)
-  const [name, setName] = useState(user.name)
-  const [email, setEmail] = useState(user.email)
+  const [name, setName] = useState(user.name || "")
+  const [email, setEmail] = useState(user.email || "")
 
   const navigate = useNavigate()
 
-  const refInputFile = useRef(null)
+  const refInputFile = useRef<HTMLInputElement>(null)
 
   const [editProfile] = useEditUserMutation()
   const [deleteAvatar] = useDeleteAvatarMutation()
@@ -74,7 +74,7 @@ const FormEditProfile: React.FC<IFormEditProfile> = ({ user }) => {
     refInputFile.current.click()
   }, [refInputFile.current])
   const handleUploadFile = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target?.files[0]) setImage(e.target?.files[0])
+    if (e.target?.files?.[0]) setImage(e.target?.files[0])
   }, [])
   const handleDeleteAvatar = useCallback(() => {
     if (!user?.id) return
@@ -99,7 +99,7 @@ const FormEditProfile: React.FC<IFormEditProfile> = ({ user }) => {
           className={styles.avatar_field}
           src={imageValue}
           onClick={handleOpenFileSelect}
-          onDelete={imageValue ? handleDeleteAvatar : null}
+          onDelete={imageValue ? handleDeleteAvatar : () => {}}
         />
         <div className={styles.form_fields}>
           <input

@@ -9,5 +9,5 @@ export interface IDataToFormat {
   login: string
   name?: string
   email?: string
-  image?: File | string
+  image?: File | string | null
 }
