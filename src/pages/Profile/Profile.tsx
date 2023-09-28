@@ -37,12 +37,16 @@ const Profile: React.FC = () => {
       </div>
     )
 
+  if (!user) return null
+
   return (
     <div className={styles.profile_wrap}>
       <ImageUser src={avatarValue} />
       <div className={styles.profile_user_info}>
-        <Text>Пользователь: {user.name || user.login}</Text>
-        {user.email && <Text>Email: {user.email}</Text>}
+        <Text type={"bold"} size={16}>
+          {user.name || user.login}
+        </Text>
+        {user.email && <Text color={"secondary"}>{user.email}</Text>}
       </div>
       {showEditBtn && (
         <Button
