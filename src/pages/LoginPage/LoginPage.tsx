@@ -2,7 +2,7 @@ import React, { useMemo, useState } from "react"
 import { useLoginUserMutation } from "../../store/auth/auth.api"
 import { useAppDispatch } from "../../helpers/hooks/useAppDispatch"
 import { useFormik } from "formik"
-import { useLocation, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { useSetTitle } from "../../helpers/hooks/useSetTitle"
 import * as Yup from "yup"
 import { Button, Input, Text } from "../../components/UI"
@@ -61,10 +61,12 @@ const LoginPage: React.FC = () => {
         console.error(err)
 
         if (err.status === 404) {
+          setErrorIncorrectPass(false)
           setErrorNotFound(true)
           return
         }
         if (err.status === 400) {
+          setErrorNotFound(false)
           setErrorIncorrectPass(true)
           return
         }

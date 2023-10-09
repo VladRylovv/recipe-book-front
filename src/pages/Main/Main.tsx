@@ -1,22 +1,28 @@
-import React from "react"
+import React, { useMemo } from "react"
 import { useSetTitle } from "../../helpers/hooks/useSetTitle"
 import { useGetRecipesQuery } from "../../store/recipes/recipe.api"
 import RecipeList from "../../components/RecipeList"
 import Block from "../../components/Block"
+import { EmptyState, Loader } from "../../components/UI"
 
 const Main: React.FC = () => {
-    useSetTitle("Main")
+  useSetTitle("Main")
 
-    const { data } = useGetRecipesQuery()
+  const { data, isFetching, isLoading } = useGetRecipesQuery()
 
-    if (!Array.isArray(data)) return null
+  const loading = useMemo(() => {
+    return !!(isFetching || isFetching)
+  }, [isLoading, isFetching])
 
-    return (
-        <div>
-            <Block />
-            <RecipeList data={data} />
-        </div>
-    )
+  if (!Array.isArray(data) || !data.length)
+    return <EmptyState text={"No recipes"} />
+
+  return (
+    <div>
+      <Block />
+      {loading ? <Loader /> : <RecipeList data={data} />}
+    </div>
+  )
 }
 
 export default Main

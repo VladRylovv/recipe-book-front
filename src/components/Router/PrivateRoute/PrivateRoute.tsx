@@ -11,12 +11,12 @@ const PrivateRoute: React.FC<PropsWithChildren<IPrivateRoute>> = ({
   const { isLoaded, isAuth } = useAppSelector((state) => state.auth)
   const accessToken = localStorage.getItem("accessToken")
 
-  if (isLoaded)
-    return (
-      <div>
-        <Text>Loading...</Text>
-      </div>
-    )
+  // if (isLoaded)
+  //   return (
+  //     <div>
+  //       <Text>Loading...</Text>
+  //     </div>
+  //   )
 
   switch (true) {
     case !loginPage && isAuth:
