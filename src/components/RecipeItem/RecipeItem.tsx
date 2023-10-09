@@ -32,7 +32,7 @@ const RecipeItem: React.FC<IRecipeItem> = ({
 
   return (
     <li className={styles.recipe_wrap}>
-      <ImageRecipe src={img} alt={name} />
+      <ImageRecipe src={img} />
       <div className={styles.recipe_text_wrap}>
         <div className={styles.recipe_item_top}>
           <Text type={"bold"}>{name}</Text>

@@ -1,5 +1,5 @@
-import { RecipeItem } from "../../types/recipes"
+import { RecipeItem } from "../../types/recipe.types"
 
 export interface IRecipeList {
-    data: RecipeItem[]
+  data: RecipeItem[]
 }
