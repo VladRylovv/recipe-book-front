@@ -4,47 +4,50 @@ import { INotification } from "./INotification"
 import styles from "./Notification.module.scss"
 
 const Notification: React.FC = () => {
-    const [notifications, setNotifications] = useState<INotification[]>([])
+  const [notifications, setNotifications] = useState<INotification[]>([])
 
-    const handleDeleteItem = useCallback((id: number) => {
-        setNotifications((prev) => prev.filter((item) => item.id !== id))
-    }, [])
+  const handleDeleteItem = useCallback((id: number) => {
+    setNotifications((prev) => prev.filter((item) => item.id !== id))
+  }, [])
 
-    useEffect(() => {
-        const cb = (e) => {
-            const id = +new Date()
+  useEffect(() => {
+    //TODO fix
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-ignore
+    const cb = (e) => {
+      const id = +new Date()
 
-            const notification = {
-                id,
-                type: e.detail.type,
-                message: e.detail.message,
-            }
+      const notification = {
+        id,
+        type: e.detail.type,
+        message: e.detail.message,
+      }
 
-            setNotifications((prev) => [notification, ...prev])
+      setNotifications((prev) => [notification, ...prev])
 
-            setTimeout(() => handleDeleteItem(id), 3000)
-        }
+      setTimeout(() => handleDeleteItem(id), 3000)
+    }
 
-        document.addEventListener("addNotification", cb)
+    document.addEventListener("addNotification", cb)
 
-        return () => document.removeEventListener("addNotification", cb)
-    }, [])
+    return () => document.removeEventListener("addNotification", cb)
+  }, [])
 
-    return (
-        <div className={styles.notification_wrap}>
-            {notifications.map((item) => {
-                return (
-                    <NotificationItem
-                        key={item.id}
-                        id={item.id}
-                        type={item.type}
-                        message={item.message}
-                        onDelete={handleDeleteItem}
-                    />
-                )
-            })}
-        </div>
-    )
+  return (
+    <div className={styles.notification_wrap}>
+      {notifications.map((item) => {
+        return (
+          <NotificationItem
+            key={item.id}
+            id={item.id}
+            type={item.type}
+            message={item.message}
+            onDelete={handleDeleteItem}
+          />
+        )
+      })}
+    </div>
+  )
 }
 
 export default Notification
