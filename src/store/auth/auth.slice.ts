@@ -42,5 +42,4 @@ export const authSlice = createSlice({
   },
 })
 
-export const { initUser, editProfileStore, logout, changeLoadingLogin } =
-  authSlice.actions
+export const { initUser, logout, changeLoadingLogin } = authSlice.actions

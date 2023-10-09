@@ -16,6 +16,7 @@ import SignUpPage from "../../pages/SignUpPage"
 import PrivateRoute from "./PrivateRoute/PrivateRoute"
 import NotFoundPage from "../../pages/NotFoundPage"
 import EditProfile from "../../pages/EditProfile/EditProfile"
+import RecipesCheck from "../../pages/RecipesCheck"
 
 const Router: React.FC = () => {
   const router = createBrowserRouter(
@@ -46,6 +47,14 @@ const Router: React.FC = () => {
             }
           />
           <Route path={"settings"} element={<Settings />} />
+          <Route
+            path={"recipesCheck"}
+            element={
+              <PrivateRoute loginPage={false}>
+                <RecipesCheck />
+              </PrivateRoute>
+            }
+          />
         </Route>
         <Route
           path={"/login"}

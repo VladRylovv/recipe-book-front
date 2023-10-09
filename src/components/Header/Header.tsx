@@ -6,6 +6,7 @@ import { NavLink, useNavigate } from "react-router-dom"
 import { Text } from "../UI"
 import { logout } from "../../store/auth/auth.slice"
 import styles from "./Header.module.scss"
+import { ROLES } from "../../types/user.types"
 
 const Header: React.FC = () => {
   const navigate = useNavigate()
@@ -55,6 +56,13 @@ const Header: React.FC = () => {
         url: "/settings",
       },
     ]
+
+    if (user?.roleId === ROLES.ADMIN)
+      staticRoutes.push({
+        id: 6,
+        label: "Check recipes",
+        url: "/recipesCheck",
+      })
 
     return isAuth
       ? [...authRoutes, ...staticRoutes]
