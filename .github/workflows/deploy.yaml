@@ -16,9 +16,9 @@ jobs:
       - name: Run command on remote server
         uses: D3rHase/ssh-command-action@v0.2.2
         with:
-          host: "213.171.3.83"
-          user: "root"
-          private_key: "cnpVm^gQSk2Q8V"
+          host: {{ secrets.SSH_HOST }}
+          user: {{ secrets.SSH_USER }}
+          private_key: {{ secrets.SSH_PRIVATE_KEY }}
           command: |
             cd ../recipe-book-front;
             git pull;
