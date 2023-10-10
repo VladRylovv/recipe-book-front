@@ -20,6 +20,6 @@ jobs:
           user: "root"
           private_key: "cnpVm^gQSk2Q8V"
           command: |
-            cd ../recipe-book-frontend;
+            cd ../recipe-book-front;
             git pull;
             npm run build;
