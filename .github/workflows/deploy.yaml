@@ -1,0 +1,25 @@
+name: "Deploy Recipes Book Frontend"
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  deploy:
+#    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Run command on remote server
+        uses: D3rHase/ssh-command-action@v0.2.2
+        with:
+          host: "213.171.3.83"
+          user: "root"
+          private_key: "cnpVm^gQSk2Q8V"
+          command: |
+            cd ../recipe-book-frontend;
+            git pull;
+            npm run build;
