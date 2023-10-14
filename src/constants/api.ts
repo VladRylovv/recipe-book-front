@@ -1,5 +1,5 @@
-export const _URL = "http://localhost:3002"
-export const URL_API = "http://localhost:3002/api"
+export const _URL = import.meta.env.VITE_SERVER
+export const URL_API = `${_URL}/api`
 export const AUTH = "/auth"
 export const RECIPE = "/recipe"
 export const USER = "/user"
