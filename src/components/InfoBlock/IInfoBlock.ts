@@ -1,3 +1,3 @@
 export interface IInfoBlock {
-  title: string
+  title?: string
 }
