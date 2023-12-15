@@ -3,7 +3,7 @@ import { Text } from "../UI"
 import { IInfoBlock } from "./IInfoBlock"
 import styles from "./InfoBlock.module.scss"
 
-const InfoBlock: React.FC<IInfoBlock> = ({ title = "Recipes Book" }) => {
+const InfoBlock: React.FC<IInfoBlock> = ({ title = "Recipes Book1" }) => {
   return (
     <div className={styles.block_wrap}>
       <div className={styles.block_text}>
