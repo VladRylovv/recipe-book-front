@@ -1,13 +1,14 @@
 import React from "react"
 import { Text } from "../UI"
-import styles from "./Block.module.scss"
+import { IInfoBlock } from "./IInfoBlock"
+import styles from "./InfoBlock.module.scss"
 
-const Block: React.FC = () => {
+const InfoBlock: React.FC<IInfoBlock> = ({ title = "Recipes Book" }) => {
   return (
     <div className={styles.block_wrap}>
       <div className={styles.block_text}>
         <Text className={styles.block_text_title} size={36}>
-          Recipes Book
+          {title}
         </Text>
         <Text size={16}>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
@@ -22,4 +23,4 @@ const Block: React.FC = () => {
   )
 }
 
-export default Block
+export default InfoBlock
