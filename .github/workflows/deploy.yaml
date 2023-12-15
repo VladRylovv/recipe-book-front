@@ -18,5 +18,9 @@ jobs:
             cd ../recipe-book-front;
             git pull;
             npm run build;
+            cd ../var/www;
+            rm -r dist;
+            cd ../../recipe-book-front;
+            mv dist ../var/www;
             export NVM_DIR=~/.nvm;
             source ~/.nvm/nvm.sh;
