@@ -2,7 +2,7 @@ import React, { useMemo } from "react"
 import { useSetTitle } from "../../helpers/hooks/useSetTitle"
 import { useGetRecipesQuery } from "../../store/recipes/recipe.api"
 import RecipeList from "../../components/RecipeList"
-import Block from "../../components/Block"
+import InfoBlock from "../../components/InfoBlock"
 import { EmptyState, Loader } from "../../components/UI"
 
 const Main: React.FC = () => {
@@ -19,7 +19,7 @@ const Main: React.FC = () => {
 
   return (
     <div>
-      <Block />
+      <InfoBlock />
       {loading ? <Loader /> : <RecipeList data={data} />}
     </div>
   )
