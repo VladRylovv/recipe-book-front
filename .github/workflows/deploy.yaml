@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     steps:
-      - name: Run command on remote server
+      - name: Run command on remote server1
         uses: D3rHase/ssh-command-action@v0.2.2
         with:
           host: ${{ secrets.SSH_HOST }}
