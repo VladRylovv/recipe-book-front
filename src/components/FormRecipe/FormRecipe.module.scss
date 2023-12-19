@@ -8,8 +8,32 @@
     width: 100%;
     gap: 20px;
 
-    & > div {
-      flex: 1;
+    & .image_recipe {
+      min-width: 350px;
+      height: 300px;
     }
+
+    & .info_recipe {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      & .description_field {
+        height: 100%;
+
+        & input {
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  & .recipe_field {
+    height: 400px;
+  }
+
+  & .btn_create_recipe {
+    width: 150px;
   }
 }

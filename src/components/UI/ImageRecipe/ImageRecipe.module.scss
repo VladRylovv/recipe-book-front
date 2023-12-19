@@ -7,6 +7,10 @@
   display: flex;
   position: relative;
 
+  & .hidden_input_upload_image {
+    display: none;
+  }
+
   & .image {
     display: block;
     width: 100%;
@@ -25,5 +29,9 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+  }
+
+  &.upload_image {
+    cursor: pointer;
   }
 }

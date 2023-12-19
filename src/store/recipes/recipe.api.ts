@@ -63,16 +63,11 @@ const recipeApi = commonApi.injectEndpoints({
         url: `${RECIPE}${GET_DETAIL_RECIPE}/${id}`,
       }),
     }),
-    createRecipe: builder.mutation({
-      query: ({ name, img, authorId, description }) => ({
+    createRecipe: builder.mutation<any, FormData>({
+      query: (form) => ({
         url: `${RECIPE}${CREATE_RECIPE}`,
         method: "POST",
-        body: {
-          name,
-          img,
-          authorId,
-          description,
-        },
+        body: form,
       }),
       async onQueryStarted(_, { dispatch, queryFulfilled }) {
         try {
