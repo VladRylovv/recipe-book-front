@@ -30,6 +30,7 @@ const DetailPageComponent: React.FC<IDetailPageComponent> = ({ recipe }) => {
           </div>
         </div>
       </div>
+      {recipe.recipeText && <Text>{recipe.recipeText}</Text>}
     </div>
   )
 }

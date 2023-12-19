@@ -16,4 +16,5 @@ export type RecipeItem = {
   user: User | null
   createdAt: string
   isChecked: boolean
+  recipeText: string | null
 }

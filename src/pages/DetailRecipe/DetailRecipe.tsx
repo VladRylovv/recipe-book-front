@@ -1,7 +1,6 @@
 import React, { useMemo } from "react"
 import { useGetDetailRecipeQuery } from "../../store/recipes/recipe.api"
 import { useParams } from "react-router-dom"
-// import { useSetTitle } from "../../helpers/hooks/useSetTitle"
 import { ScrollRestoration } from "react-router-dom"
 import { Loader } from "../../components/UI"
 import DetailPageComponent from "../../components/DetailPageComponent"
@@ -21,8 +20,6 @@ const DetailRecipe: React.FC = () => {
 
     return data
   }, [data])
-
-  // useSetTitle(recipe ? recipe.name : "Recipe", [recipe])
 
   if (isLoading || isFetching)
     return (

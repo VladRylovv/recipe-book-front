@@ -106,6 +106,7 @@ const FormEditProfile: React.FC<IFormEditProfile> = ({ user }) => {
             ref={refInputFile}
             className={styles.input_file_upload}
             type={"file"}
+            accept=".jpg,.jpeg,.png,.gif"
             onChange={handleUploadFile}
           />
           <Input
