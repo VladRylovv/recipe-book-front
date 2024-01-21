@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom"
 import { ScrollRestoration } from "react-router-dom"
 import { Loader } from "../../components/UI"
 import DetailPageComponent from "../../components/DetailPageComponent"
+import styles from "./DetailRecipe.module.scss"
 
 const DetailRecipe: React.FC = () => {
   const { recipeId } = useParams()
@@ -23,7 +24,7 @@ const DetailRecipe: React.FC = () => {
 
   if (isLoading || isFetching)
     return (
-      <div>
+      <div className={styles.loading_wrap}>
         <Loader size={"l"} />
       </div>
     )
