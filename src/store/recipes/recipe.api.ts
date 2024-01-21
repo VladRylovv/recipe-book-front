@@ -6,11 +6,14 @@ import {
   GET_RECIPES,
   GET_RECIPES_CHECK,
   RECIPE,
+  REMOVE_RECIPE,
 } from "../../constants/api"
 import {
   ApiResponseCheckRecipe,
+  ApiResponseCreateRecipe,
   ApiResponseGetDetailRecipe,
   ApiResponseGetRecipes,
+  ApiResponseRemoveRecipe,
 } from "../../types/recipe.types"
 
 const recipeApi = commonApi.injectEndpoints({
@@ -58,12 +61,36 @@ const recipeApi = commonApi.injectEndpoints({
         }
       },
     }),
+    removeRecipe: builder.mutation<ApiResponseRemoveRecipe, { id: number }>({
+      query: ({ id }) => ({
+        url: `${RECIPE}${REMOVE_RECIPE}/${id}`,
+        method: "DELETE",
+      }),
+      async onQueryStarted(_, { dispatch, queryFulfilled }) {
+        const { data } = await queryFulfilled
+        const { recipeId } = data
+
+        try {
+          dispatch(
+            recipeApi.util.updateQueryData(
+              "getRecipes",
+              undefined,
+              (recipes) => {
+                return recipes.filter((item) => +item.id !== +recipeId)
+              }
+            )
+          )
+        } catch (err) {
+          console.error(err)
+        }
+      },
+    }),
     getDetailRecipe: builder.query<ApiResponseGetDetailRecipe, { id: number }>({
       query: ({ id }) => ({
         url: `${RECIPE}${GET_DETAIL_RECIPE}/${id}`,
       }),
     }),
-    createRecipe: builder.mutation<any, FormData>({
+    createRecipe: builder.mutation<ApiResponseCreateRecipe, FormData>({
       query: (form) => ({
         url: `${RECIPE}${CREATE_RECIPE}`,
         method: "POST",
@@ -95,4 +122,5 @@ export const {
   useGetDetailRecipeQuery,
   useCreateRecipeMutation,
   useCheckRecipeMutation,
+  useRemoveRecipeMutation,
 } = recipeApi
