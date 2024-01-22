@@ -9,6 +9,7 @@ import {
 } from "../../constants/api"
 import {
   ApiResponseCheckRecipe,
+  ApiResponseCreateRecipe,
   ApiResponseGetDetailRecipe,
   ApiResponseGetRecipes,
 } from "../../types/recipe.types"
@@ -50,7 +51,7 @@ const recipeApi = commonApi.injectEndpoints({
           dispatch(
             recipeApi.util.updateQueryData(
               "getRecipes",
-              undefined,
+              { searchText: "" },
               (recipes) => {
                 return [...recipes, recipe]
               }
@@ -66,7 +67,7 @@ const recipeApi = commonApi.injectEndpoints({
         url: `${RECIPE}${GET_DETAIL_RECIPE}/${id}`,
       }),
     }),
-    createRecipe: builder.mutation<any, FormData>({
+    createRecipe: builder.mutation<ApiResponseCreateRecipe, FormData>({
       query: (form) => ({
         url: `${RECIPE}${CREATE_RECIPE}`,
         method: "POST",

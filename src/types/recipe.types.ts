@@ -7,6 +7,7 @@ export type ApiResponseCheckRecipe = {
   recipe: RecipeItem
   message: string
 }
+export type ApiResponseCreateRecipe = RecipeItem
 
 export type RecipeItem = {
   id: number
