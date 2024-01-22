@@ -7,6 +7,10 @@ export type ApiResponseCheckRecipe = {
   recipe: RecipeItem
   message: string
 }
+export type ApiResponseRemoveRecipe = {
+  recipeId: number
+  message: string
+}
 export type ApiResponseCreateRecipe = RecipeItem
 
 export type RecipeItem = {
