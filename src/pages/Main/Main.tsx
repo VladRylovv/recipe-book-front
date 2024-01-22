@@ -1,27 +1,34 @@
-import React, { useMemo } from "react"
+import React, { useMemo, useState } from "react"
 import { useSetTitle } from "../../helpers/hooks/useSetTitle"
 import { useGetRecipesQuery } from "../../store/recipes/recipe.api"
 import RecipeList from "../../components/RecipeList"
 import InfoBlock from "../../components/InfoBlock"
 import LoaderPage from "../../components/LoaderPage/LoaderPage"
-import { EmptyState, Loader } from "../../components/UI"
+import SearchInput from "../../components/SearchInput/SearchInput"
+import { EmptyState } from "../../components/UI"
 
 const Main: React.FC = () => {
+  const [searchValue, setSearchValue] = useState("")
+
   useSetTitle("Main")
 
-  const { data, isFetching, isLoading } = useGetRecipesQuery()
+  const { data, isFetching, isLoading } = useGetRecipesQuery({
+    searchText: searchValue,
+  })
 
   const loading = useMemo(() => {
     return !!(isFetching || isFetching)
   }, [isLoading, isFetching])
 
   if (loading) return <LoaderPage />
-  if (!Array.isArray(data) || !data.length)
-    return <EmptyState text={"No recipes"} />
 
   return (
     <div>
       <InfoBlock />
+      <SearchInput
+        searchValue={searchValue}
+        onChangeSearchValue={(value) => setSearchValue(value)}
+      />
       <RecipeList data={data} />
     </div>
   )
