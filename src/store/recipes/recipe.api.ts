@@ -15,9 +15,12 @@ import {
 
 const recipeApi = commonApi.injectEndpoints({
   endpoints: (builder) => ({
-    getRecipes: builder.query<ApiResponseGetRecipes, void>({
-      query: () => ({
+    getRecipes: builder.query<ApiResponseGetRecipes, { searchText: string }>({
+      query: ({ searchText = "" }) => ({
         url: `${RECIPE}${GET_RECIPES}`,
+        params: {
+          searchText,
+        },
       }),
     }),
     getRecipesCheck: builder.query<ApiResponseGetRecipes, void>({

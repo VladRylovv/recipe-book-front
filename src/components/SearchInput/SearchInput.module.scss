@@ -1,0 +1,9 @@
+.search_input_wrap {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+
+  & .search_input {
+    width: 100%;
+  }
+}
