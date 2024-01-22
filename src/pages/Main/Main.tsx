@@ -5,7 +5,6 @@ import RecipeList from "../../components/RecipeList"
 import InfoBlock from "../../components/InfoBlock"
 import LoaderPage from "../../components/LoaderPage/LoaderPage"
 import SearchInput from "../../components/SearchInput/SearchInput"
-import { EmptyState } from "../../components/UI"
 
 const Main: React.FC = () => {
   const [searchValue, setSearchValue] = useState("")
