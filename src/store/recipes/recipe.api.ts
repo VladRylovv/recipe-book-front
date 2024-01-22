@@ -53,7 +53,7 @@ const recipeApi = commonApi.injectEndpoints({
           dispatch(
             recipeApi.util.updateQueryData(
               "getRecipes",
-              undefined,
+              { searchText: "" },
               (recipes) => {
                 return [...recipes, recipe]
               }
